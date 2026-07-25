@@ -1,30 +1,28 @@
-Matrix implementation of Spiking Neural P Systems for Image Classification
-=================================================
+Spiking Neural P Systems for CNN
+==================================
 
-This project takes the extended model of Spiking Neural P Systems (SN P systems) applied to image classification tasks used in https://github.com/SandroErba/spiking-p-system and contains:
-- Matrix representation of the SNP Systems applied to image classification
-- GPU implementation of the system
-- Testing and timing methods for both matricial and classic SNP systems.
-The framework supports both small example systems and a multilayer architecture designed for processing structured inputs such as images.
+This project provides a Python implementation of **Spiking Neural P Systems (SN P systems)**, a distributed and parallel computing model inspired by the way biological neurons communicate through spikes.
+
+The aim of the work is to recreate the main mechanisms of a Convolutional Neural Network (CNN) in order to perform an image classification task using the SN P system.
+
+The framework includes: - Extended SN P systems (multi-spike firing rules) - Inhibitory synapses with anti-spikes - Lightweight architecture without synaptic weights.
 
 The project has been developed in collaboration between the University of Milano-Bicocca and the University of Verona.
 
-The initial codebase is a fork of:
-https://github.com/a1sabau/spiking-p-system
+This repository is a fork of:
 
-and is sequently an extract of me and @SandroErba's work in:
 https://github.com/SandroErba/spiking-p-system
 
-The framework includes:
-- Extended SNP systems (multi-spike firing rules)
-- White hole mechanism for the classical SNP system
-- Inhibitory synapses with anti-spikes and its matricial implementation
-- Lightweight architecture without synaptic weights
+which, in turn, is based on the original implementation by:
 
-It can be used to run small SN P system examples or a multilayer model for image classification, with the structure illustrated below.
+https://github.com/a1sabau/spiking-p-system
+
+The task is run on the `MNIST <https://www.kaggle.com/datasets/hojjatk/mnist-dataset>`_ database, and there are numerous parameters in the config.py file that allow you to change the behaviour and structure of the network.
+
+The overall architecture of the simulator is illustrated below.
 
 .. image:: SNPS_scheme.png
-   :alt: Multilayer SN P system architecture
+   :alt: SN P system architecture
    :align: center
    :width: 600px
 
@@ -35,18 +33,18 @@ Clone the repository:
 
 .. code-block:: bash
 
-   git clone https://github.com/MatteoBalzerani/matrix-spiking-neural-p-system.git
-   cd matrix-spiking-neural-p-system
+   git clone https://github.com/SandroErba/From-CNN-to-SNPS.git
+   cd From-CNN-to-SNPS
 
 Create a virtual environment (optional but recommended):
 
 .. code-block:: bash
 
    python -m venv venv
-   source venv/bin/activate  # Linux / Mac
-   venv\Scripts\activate     # Windows
+   source venv/bin/activate      # Linux / macOS
+   venv\Scripts\activate         # Windows
 
-Install dependencies:
+Install the required dependencies:
 
 .. code-block:: bash
 
@@ -55,11 +53,10 @@ Install dependencies:
 Usage
 -----
 
-If a different entry point is used:
+Run the simulator with:
 
 .. code-block:: bash
 
    python main.py
 
-Experiments can be executed by varying parameters in the directly in the code.
-
+Simulation parameters, input systems, and execution settings can be customized directly within the project files.
