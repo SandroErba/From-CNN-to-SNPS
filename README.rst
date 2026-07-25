@@ -59,4 +59,8 @@ Run the simulator with:
 
    python main.py
 
-Simulation parameters, input systems, and execution settings can be customized directly within the project files.
+
+Results
+------------
+In the ‘graphs/accuracy_graphs’ folder, you can find the results for the model and its sub-models as certain parameters are varied.
+
