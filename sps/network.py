@@ -12,7 +12,28 @@ from sps.snp_system import SNPSystem
 from sklearn.svm import LinearSVC
 
 
+def launch_dataset(x,y):
+    #3/4 in training, 1/4 in test, it's important that the test set does not
+    #contain elements from the training
+    np.random.seed(123)
+    indices = np.random.choice(x.shape[0],size=int(x.shape[0]/4*3),replace=False)
+    x_train = x[indices]
+    y_train = y[indices]
+    x_test = np.delete(x, indices, axis=0)
+    y_test = np.delete(y, indices)
 
+    print(x_train.shape,y_train.shape)
+    print(x_test.shape,y_test.shape)
+    t=time.time()
+    #example_direct(x_train, y_train, x_test, y_test) #optional
+
+    SNPS_csv() #create the csv for the SNPS
+    svm, logreg = train_SNPS(x_train, y_train)
+    print("-> Done the training procedure")
+
+    ensemble_accuracy = test_SNPS(x_test, y_test, svm, logreg)
+    handle_csv.save_results(ensemble_accuracy, time.time()-t)
+    return ensemble_accuracy
 
 def launch_mnist():
     x_train, y_train, x_test, y_test = get_mnist_data()

@@ -1,10 +1,10 @@
 class Config:
     MODE = "CNN"
-    DATABASE = 'digit'
+    DATABASE = ''
     NUM_LAYERS = 4  #number of layers in the final network
 
     # IMAGES
-    IMG_SHAPE = 28 #ipotizing squared shape images of 28 pixels
+    IMG_SHAPE = 100 #ipotizing squared shape images of 28 pixels
     BLOCK_SHAPE = 2  #the size of the window block for the second layer
 
     #SNPS BEHAVIOUR
@@ -12,8 +12,8 @@ class Config:
     QUANTIZATION = True
     WHITE_HOLE= True #if true all the internal spikes are deleted after firing
 
-    TRAIN_SIZE = 3000 #number of images for the train phase
-    TEST_SIZE = 1000 #number of images for the test phase
+    TRAIN_SIZE = 1483 #number of images for the train phase
+    TEST_SIZE = 495 #number of images for the test phase
 
     #LAYER 1 - INPUT IMAGE
     NEURONS_L1 = int(IMG_SHAPE ** 2) #number of neurons for layer 1 (pixels in the image)
@@ -43,11 +43,11 @@ class Config:
     NEURONS_L3 = int(KERNEL_NUMBER * NEURONS_POOL) #number of neurons on the pooling layer (1352)
 
     #LAYER 3 - CLASSIFICATION
-    CLASSES = 10
+    CLASSES = 4
     SVM_C = 3.0
 
     #MATRIX TERNARIZE
-    TERNARIZE_METHOD = 2 #can be 1 -> Percentile or 2 -> Threshold
+    TERNARIZE_METHOD = 1 #can be 1 -> Percentile or 2 -> Threshold
     M_SPARSITY = 0.8 #percentage of 0 values in the quantized matrix, used if TERNARIZE_METHOD == 1
     M_POSITIVE = 0.1 #percentage of 1 values in the quantized matrix, used if TERNARIZE_METHOD == 1
     M_THRESHOLD = 1.05 #multiplied factor for column values, used if TERNARIZE_METHOD == 2
@@ -81,7 +81,7 @@ class Config:
                 sum(v == 1  for row in kernel for v in row) *  (cls.Q_RANGE - 1)
             )
             for kernel in cls.KERNELS
-        ]
+            ]
 
 
 def database(database):

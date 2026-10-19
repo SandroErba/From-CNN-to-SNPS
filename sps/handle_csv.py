@@ -4,7 +4,6 @@ from datetime import datetime
 import json
 from sps.config import Config
 
-
 def _build_layer1_qrange_rules():
     """Layer-1 rules equivalent to q = floor(pixel * Q_RANGE / 256)."""
     rules = []
