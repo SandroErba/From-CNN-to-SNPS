@@ -9,6 +9,8 @@ The framework includes: - Extended SN P systems (multi-spike firing rules) - Inh
 
 The project has been developed in collaboration between the University of Milano-Bicocca and the University of Verona.
 
+More info can be found in the document "Towards_a_lightweight_Spiking_Neural_P_system_for_image_recognition.pdf"
+
 This repository is a fork of:
 
 https://github.com/SandroErba/spiking-p-system
